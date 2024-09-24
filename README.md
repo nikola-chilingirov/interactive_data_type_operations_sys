@@ -49,4 +49,4 @@ Example
       - Access and print the value for the key "age".
       - Add a new key-value pair (e.g., "home town": "Smolian") and print the updated dictionary.
 
-[Source Code](rock_paper_scissors.py)
+[Source Code](https://github.com/nikola-chilingirov/interactive_data_type_operations_sys/blob/main/interactive_data_type_operations_system.py)
