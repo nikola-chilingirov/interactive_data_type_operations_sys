@@ -1,4 +1,4 @@
-# interactive_data_type_operations_sys
+# Interactive Data Type Operations System
 Dynamic script where the user gets to choose a data type and perform related operations
 
 Prompt the user with a menu to select from five options:
