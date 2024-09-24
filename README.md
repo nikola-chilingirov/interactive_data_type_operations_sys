@@ -48,3 +48,5 @@ Example
    - **Dictionary**: Create a dictionary with key-value pairs (e.g., {"name": "Nick", "age": 30, "city": "Sofia"}).
       - Access and print the value for the key "age".
       - Add a new key-value pair (e.g., "home town": "Smolian") and print the updated dictionary.
+
+[Source Code](rock_paper_scissors.py)
