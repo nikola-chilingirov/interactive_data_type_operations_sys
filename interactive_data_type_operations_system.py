@@ -19,17 +19,17 @@ while True:
 
     if choice == '1':
     # Declare a string variable, e.g., sentence = "Learning Python is fun!"
-        sentence = "Learning Python is fun!"
+        sentence = input("Please input string variables, e.g., Learning Python is fun!: ")
         print(sentence)
         flag = True
         while flag:
     # Extract and print a substring, such as the word "Python" from the sentence.
-            word = input("Chose word to extract: ") #print(sentence[9:16])
+            word = input("Chose word for your input to extract: ") #print(sentence[9:16])
             if word in sentence:
                 new_sentence = sentence.replace(word, '')
                 new_sentence = ' '.join(new_sentence.split())
                 sentence = new_sentence
-                print(word)
+                print(f"You choose '{word}' to extract.")
                 print(f"The new sentence is: {new_sentence}")
                 flag = False
             else:
@@ -53,18 +53,30 @@ while True:
     # If the user chooses Numbers (choice == '2'):
     elif choice == '2':
     # Prompt the user to input two numbers, e.g., num1 and num2.
-        print("You chose Numbers!")
-        num_1 = float(input("Enter the first number:" ))
-        num_2 = float(input("Enter the second number:" ))
+        print("You choose Numbers!")
+        num_1 = float(input("Enter the first number: "))
+        num_2 = float(input("Enter the second number: "))
     # Perform and print the results of addition, subtraction, multiplication, and division.
-        print(f'Addition: {num_1 + num_2}')
-        print(f'Subtraction: {num_1 - num_2}')
-        print(f'Multiplication: {num_1 * num_2}')
-        print(f"{num_1} raised to the power of {num_2} is: {(num_1 ** num_2):.3f}")
-        if num_2 == 0:
-            print("Division: error, please enter number different from 0")
-        else:
-            print(f'Division: {num_1 / num_2}')
+        print("Choose number of operation:")
+        print(f'1 - Addition')
+        print(f'2 - Subtraction')
+        print(f'3 - Multiplication')
+        print(f"4 - Raising first number to the power of second number")
+        print(f'5 - Division')
+        choice_op = int(input("Enter the number of operation: "))
+        if choice_op == 1:
+            print(f'Addition: {num_1} + {num_2} = {num_1 + num_2}')
+        elif choice_op == 2:
+            print(f'Subtraction: {num_1} - {num_2} = {num_1 - num_2} ')
+        elif choice_op == 3:
+            print(f'Multiplication: {num_1} * {num_2} = {num_1 * num_2}')
+        elif choice_op == 4:
+            print(f"{num_1} raised to the power of {num_2} is: {(num_1 ** num_2):.3f}")
+        elif choice_op == 5:
+            if num_2 == 0:
+                print("Division: error, please enter number different from 0")
+            else:
+                print(f'Division: {num_1} / {num_2} = {num_1 / num_2}')
 
     # Handle division by zero (e.g., print an error message if num2 is zero).
 
@@ -75,7 +87,7 @@ while True:
         flag = True
         while flag:
             print("Chose 'Yes' or 'No'.")
-            is_python_fun = input("Is learning Python fun? : ")
+            is_python_fun = input("Is learning Python fun?: ")
             if is_python_fun == 'Yes':
                 is_python_fun = True
             else:
@@ -118,125 +130,209 @@ while True:
     # If the user chooses Additional Data Types (choice == '4'):
     elif choice == '4':
     # ### List Operations ###
-        print('List Operations')
-    # Create a list with mixed data types (e.g., numbers, strings, booleans).
-        print('Now we will create a list with mixed data type.')
-        mixed_list = []
-        txt = 'Please input integer, float and string'
-        print(txt)
-        while True:
-            integer = input('Input integer: ')
-            if ord(integer[0]) == 45 and integer[1:].isdigit():
-                mixed_list.append(int(integer))
-                break
-            elif integer.isdigit():
-                mixed_list.append(int(integer))
-                break
-            else:
-                print('Wrong input, please try again.')
-                continue
-        while True:
-            float_data = input('Input float: ')
-            if ord(float_data[0]) == 45 and '.' in float_data:
-                float_data_temp = float_data.replace('-', '', 1).replace('.', '', 1)
-                if len(float_data_temp) == (len(float_data) - 2):
-                    mixed_list.append(float(float_data))
-                break
-            elif 48 <= ord(float_data[0]) <= 57 and '.' in float_data:
-                float_data_temp = float_data.replace('.', '', 1)
-                if len(float_data_temp) == (len(float_data) - 1):
-                    mixed_list.append(float(float_data))
-                break
-            else:
-                print('Wrong input, please try again.')
-                continue
-        string_data = input('Input string: ')
-        mixed_list.append(string_data)
-        print(f"Your list is {mixed_list}")
-        print('Now we will check types ot the elements of the list')
-        for i in mixed_list:
-            print(type(i))
-    # Append a new element to the list and print the updated list.
-        print('Now we will append a new element to the list.')
-        new_element = input('Input new element - integer, float or string: ')
-        flag = True
-        for x in range(1):
-            try:
-                int(new_element)
-                new_element = int(new_element)
-            except ValueError:
-                flag = False
-            if flag:
-                mixed_list.append(int(new_element))
-                break
-            try:
+        print('Choose what Additional Data Type want to create.')
+        print('1 - List')
+        print('2 - Tuple')
+        print('3 - Dictionary')
+        choice_op_data = int(input('Choose number of type: '))
+        if choice_op_data == 1:
+            # Create a list with mixed data types (e.g., numbers, strings, booleans).
+            print('Now we will create a list with mixed data types.')
+            mixed_list = []
+            while True:
+                data = input('Please input data and when you are ready input END: ')
+                if data == "END":
+                    break
                 flag = True
-                float(new_element)
-                new_element = float(new_element)
-            except ValueError:
-                flag = False
-            if flag:
-                mixed_list.append(float(new_element))
-                break
-            else:
-                mixed_list.append(new_element)
-                break
-        print(f"The new list is {mixed_list}")
-        print('The elements of the new list are: ')
-        for i in mixed_list:
-            print(type(i))
+                try:
+                    int(data)
+                    new_element = int(data)
+                except ValueError:
+                    flag = False
+                if flag:
+                    mixed_list.append(int(data))
+                    continue
+                try:
+                    flag = True
+                    float(data)
+                    new_element = float(data)
+                except ValueError:
+                    flag = False
+                if flag:
+                    mixed_list.append(float(data))
+                    continue
+                if data.lower() == 'false' or data.lower() == 'true':
+                    if data.capitalize() == 'True':
+                        data_t = bool(data)
+                        mixed_list.append(data_t)
+                    else:
+                        data_f = bool(not data)
+                        mixed_list.append(data_f)
+                else:
+                    mixed_list.append(data)
+                    continue
+            print(f"Your list is {mixed_list}")
+            print('Now we will check types ot the elements of the list')
+            for i in mixed_list:
+                print(type(i), end=', ')
+    # Append a new element to the list and print the updated list.
+            print()
+            print('Now we will append a new element to the list.')
+            new_element = input('Input new element - integer, float, string or boolean: ')
+            flag = True
+            for x in range(1):
+                try:
+                    int(new_element)
+                    new_element = int(new_element)
+                except ValueError:
+                    flag = False
+                if flag:
+                    mixed_list.append(int(new_element))
+                    break
+                try:
+                    flag = True
+                    float(new_element)
+                    new_element = float(new_element)
+                except ValueError:
+                    flag = False
+                if flag:
+                    mixed_list.append(float(new_element))
+                    break
+                if new_element.lower() == 'false' or new_element.lower() == 'true':
+                    if new_element.capitalize() == 'True':
+                        data_t = bool(new_element)
+                        mixed_list.append(data_t)
+                    else:
+                        data_f = bool(not new_element)
+                        mixed_list.append(data_f)
+                else:
+                    mixed_list.append(new_element)
+                    break
+            print(f"The new list is {mixed_list}")
+            print('The elements of the new list are: ')
+            for i in mixed_list:
+                print(type(i), end=', ')
     # Access and print the 4th element in the list.
-        print("Chose number of list`s element that you want to access.")
-        element = int(input("Number of element: "))
-        print(f"You choose: {mixed_list[element - 1]}")
+            print()
+            print("Chose number of list`s element that you want to access.")
+            element = int(input("Number of element: "))
+            print(f"You choose: {mixed_list[element - 1]}")
     # ### Tuple Operations ###
     # Create a tuple with some string elements (e.g., fruits).
-        print()
-        print('Tuple Operations')
-        print('Input your three favourite fruits:')
-        lst = []
-        for f in range(3):
-            fruit = input()
-            lst.append(fruit)
-        tuple_fruit = tuple(lst)
-        print(f"This is tuple with your favourite fruits: {tuple_fruit}")
-    # Print the length of the tuple.
-        print(f"Now we will check the length of the tuple: {len(tuple_fruit)}")
-        print()
+        elif choice_op_data == 2:
+            print()
+            print('Tuple Operations')
+            lst_tuple = []
+            while True:
+                data = input('Please input data and when you are ready input END: ')
+                if data == "END":
+                    break
+                flag = True
+                try:
+                    int(data)
+                    new_element = int(data)
+                except ValueError:
+                    flag = False
+                if flag:
+                    lst_tuple.append(int(data))
+                    continue
+                try:
+                    flag = True
+                    float(data)
+                    new_element = float(data)
+                except ValueError:
+                    flag = False
+                if flag:
+                    lst_tuple.append(float(data))
+                    continue
+                if data.lower() == 'false' or data.lower() == 'true':
+                    if data.capitalize() == 'True':
+                        data_t = bool(data)
+                        lst_tuple.append(data_t)
+                    else:
+                        data_f = bool(not data)
+                        lst_tuple.append(data_f)
+                else:
+                    lst_tuple.append(data)
+                    continue
+            tuple_data = tuple(lst_tuple)
+            print(f"Your tuple is {lst_tuple}")
+        # Print the length of the tuple.
+            print(f"Now we will check the length of the tuple")
+            print(f'The length of your tuple is: {len(lst_tuple)}')
+            print()
+
     # Try to modify one element in the tuple and handle the resulting TypeError.
-        print('Once a tuple is created, you cannot change its values. Tuples are immutable.')
-        print('But you can convert the tuple into a list, change the list, and convert the list back into a tuple.')
-        print("Let`s do it.")
-        lst_fruit = list(tuple_fruit)
-        print(f"First we convert our tuple {tuple_fruit} in list {lst_fruit}.")
-        print("Let`s change any fruit in our tuple.")
-        old_fruit = input('Chose fruit to change: ')
-        new_fruit = input('Chose new fruit: ')
-        a = lst_fruit.index(old_fruit)
-        lst_fruit[a] = new_fruit
-        new_tuple = tuple(lst_fruit)
-        print(f"Your new tuple is: {new_tuple}")
-        print()
-    # ### Dictionary Operations ###
+            print('Once a tuple is created, you can not change its values. Tuples are immutable.')
+            print('But you can convert the tuple into a list, change the list, and convert the list back into a tuple.')
+            print("Let`s do it.")
+            tuple_data = list(tuple_data)
+            print(f"First we convert our tuple {tuple_data} in list {tuple_data}.")
+            print("Let`s change any element in our tuple.")
+            temp_lst = []
+            old_data = input('Enter data to change: ')
+            temp_lst.append(old_data)
+            new_data = input('Enter new data: ')
+            temp_lst.append(new_data)
+            temp_lst_convert = []
+            for i in temp_lst:
+                flag = True
+                try:
+                    int(i)
+                    new_element = int(i)
+                except ValueError:
+                    flag = False
+                if flag:
+                    temp_lst_convert.append(int(i))
+                    continue
+                try:
+                    flag = True
+                    float(i)
+                    new_element = float(i)
+                except ValueError:
+                    flag = False
+                if flag:
+                    temp_lst_convert.append(float(i))
+                    continue
+                if i.lower() == 'false' or i.lower() == 'true':
+                    if i.capitalize() == 'True':
+                        i_t = bool(i)
+                        temp_lst_convert.append(i_t)
+                    else:
+                        i_f = bool(not i)
+                        temp_lst_convert.append(i_f)
+                else:
+                    temp_lst_convert.append(i)
+                    continue
+
+            index_tuple_list = tuple_data.index(temp_lst_convert[0])
+            tuple_data[index_tuple_list] = temp_lst_convert[1]
+            new_tuple = tuple(tuple_data)
+            print(f"Your new tuple is: {new_tuple}")
+            print()
+
+        elif choice_op_data == 3:
     # Create a dictionary with some key-value pairs (e.g., name, age, city).
-        print('Dictionary Operations')
-        new_dict = {'name': '', 'age': '', 'city': ''}
-        name = input('Input your name: ')
-        age = input('Input your age: ')
-        city = input('Input your city: ')
-        new_dict['name'] = name
-        new_dict['age'] = age
-        new_dict['city'] = city
-        print(f"This is your Dictionary: {new_dict}")
-    # Access and print the value for one of the keys (e.g., "age").
-        key = input(f"Chose one of the key from your dictionary to print its value: ")
-        b = new_dict[key]
-        print(f"This is value {b} of key {key}")
-        print()
-    # Add a new key-value pair to the dictionary and print the updated dictionary.
-        print('We add new key-value to our dictionary')
-        new_key = input(f"Input your home town: ")
-        new_dict.update({'home town': new_key})
-        print(f"This is update dictionary: {new_dict}")
-    # If the user enters an invalid choice:
+            print('Dictionary Operations')
+            new_dictionary = {}
+            while True:
+                key = input('Input key, when finish input END: ')
+                if key == "END":
+                    break
+                value = input('Input value: ')
+                new_dictionary[key] = value
+                continue
+            print(f"This is your Dictionary: {new_dictionary}")
+            # Access and print the value for one of the keys (e.g., "age").
+            key = input(f"Chose one of the key from your dictionary to print its value: ")
+            key_print = new_dictionary[key]
+            print(f"The value of {key} is {key_print}")
+            print()
+            # Add a new key-value pair to the dictionary and print the updated dictionary.
+            print('We add new key-value to our dictionary')
+            new_key = input(f"Input new key: ")
+            new_value = input(f"Input new value: ")
+            new_dictionary.update({new_key: new_value})
+            print(f"This is update dictionary: {new_dictionary}")
+            # If the user enters an invalid choice:
 
