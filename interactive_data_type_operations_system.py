@@ -6,7 +6,7 @@ while True:
     print("1. Strings")
     print("2. Numbers")
     print("3. Booleans")
-    print("4. Additional Data Types (List, Tuple, Dictionary)")
+    print("4. Additional Data Types (List, Tuple, Dictionary, Set)")
     print("5. End program")
     choice = input("Enter the number of your choice (1-5): ")
     if choice == '5':
@@ -134,6 +134,7 @@ while True:
         print('1 - List')
         print('2 - Tuple')
         print('3 - Dictionary')
+        print('4 - Set')
         choice_op_data = int(input('Choose number of type: '))
         if choice_op_data == 1:
             # Create a list with mixed data types (e.g., numbers, strings, booleans).
@@ -334,5 +335,63 @@ while True:
             new_value = input(f"Input new value: ")
             new_dictionary.update({new_key: new_value})
             print(f"This is update dictionary: {new_dictionary}")
-            # If the user enters an invalid choice:
-
+        elif choice_op_data == 4:
+    # Create a set with some items.
+            print('Set Operations')
+            first_set = set()
+            print('Keep in mind that set do not allow duplicate items.')
+            while True:
+                item_1 = input('Input item, when finish input END: ')
+                if item_1 == "END":
+                    break
+                first_set.add(item_1)
+            print(f"This is your Set: {first_set}")
+            print()
+            second_set = set()
+            print('We create new set and we will do some operations with two sets.')
+            print('Input item which is already input in first set.')
+            while True:
+                item_2 = input('Input item, when finish input END: ')
+                if item_2 == "END":
+                    break
+                second_set.add(item_2)
+            print(f"This is your Set: {second_set}")
+            print()
+            print('Choose operation')
+            print('1 - Union - returns a set that contains all items from the original set, and all items from the specified set')
+            print('2 - Difference - return a set that contains the difference between two sets.')
+            print('3 - Intersection - return a set that contains the similarity between two or more sets.')
+            print('4 - Remove - remove the specified element.')
+            print('5 - Return to main menu.')
+            while True:
+                choice_op_set = input('Choose number of operation: ')
+                if choice_op_set == "1":
+                    union_set = first_set.union(second_set)
+                    print(f'This is union of first set and second set, duplicates are excluded: {union_set}')
+                elif choice_op_set == '2':
+                    diff_set = first_set.difference(second_set)
+                    print(f'This is the set that contains the difference between first two sets, the set contains items that exist only in the first set: {diff_set}')
+                elif choice_op_set == '3':
+                    inter_set = first_set.intersection(second_set)
+                    print(f'This set contains the similarity between first two sets: {inter_set}')
+                elif choice_op_set == '4':
+                    print('Choose from which set you want to remove item.')
+                    print(f'First set input - first: {first_set}')
+                    print(f'Second set input - second: {second_set}')
+                    while True:
+                        choice_num_set = input()
+                        if choice_num_set != 'first' and choice_num_set != 'second':
+                            print('Wrong input. Please try again.')
+                            continue
+                        elif choice_num_set == 'first':
+                            remove_item_1 = input('Choose item to remove: ')
+                            first_set.remove(remove_item_1)
+                            print(f'This is the set after removing {remove_item_1} from it: {first_set}')
+                            break
+                        elif choice_num_set == 'second':
+                            remove_item_2 = input('Choose item to remove: ')
+                            second_set.remove(remove_item_2)
+                            print(f'This is the set after removing {remove_item_2} from it: {second_set}')
+                            break
+                elif choice_op_set == '5':
+                    break

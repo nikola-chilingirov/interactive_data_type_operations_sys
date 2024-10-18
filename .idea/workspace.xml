@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2c4b56d7-dcf7-4c0a-8486-f16463264ed0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/interactive_data_type_operations_system.py" beforeDir="false" afterPath="$PROJECT_DIR$/interactive_data_type_operations_system.py" afterDir="false" />
-    </list>
+    <list default="true" id="2c4b56d7-dcf7-4c0a-8486-f16463264ed0" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +18,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/PycharmProjects" />
   </component>
   <component name="RunManager">
     <configuration name="interactive_data_type_operations_system" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
